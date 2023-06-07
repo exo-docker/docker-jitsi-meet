@@ -1,5 +1,5 @@
 ARG JITSI_REPO=ghcr.io/jitsi
-ARG BASE_TAG=latest
+ARG BASE_TAG=stable-11146
 FROM ${JITSI_REPO}/base:${BASE_TAG}
 
 USER root
