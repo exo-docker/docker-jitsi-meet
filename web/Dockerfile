@@ -11,7 +11,7 @@ LABEL org.opencontainers.image.source="https://github.com/jitsi/docker-jitsi-mee
 LABEL org.opencontainers.image.documentation="https://jitsi.github.io/handbook/"
 
 ADD https://raw.githubusercontent.com/acmesh-official/acme.sh/3.0.7/acme.sh /opt
-COPY rootfs/ /
+COPY web/rootfs/ /
 
 RUN \
   apt-dpkg-wrap apt-get update && \
@@ -34,6 +34,6 @@ RUN \
 
 EXPOSE 8000 8443
 
-VOLUME ["/config", "/usr/share/jitsi-meet/transcripts"]
+VOLUME ["/usr/share/jitsi-meet/transcripts"]
 
 USER s6
