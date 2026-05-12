@@ -1,6 +1,6 @@
 ARG JITSI_REPO=jitsi
 ARG BASE_TAG=latest
-FROM ${JITSI_REPO}/base:${BASE_TAG}
+FROM ${JITSI_REPO}/base:stable-10888
 
 LABEL org.opencontainers.image.title="Jitsi Meet"
 LABEL org.opencontainers.image.description="WebRTC compatible JavaScript application that uses Jitsi Videobridge to provide high quality, scalable video conferences."
@@ -19,4 +19,4 @@ RUN apt-dpkg-wrap apt-get update && \
 
 EXPOSE 80 443
 
-VOLUME ["/config", "/usr/share/jitsi-meet/transcripts"]
+VOLUME ["/usr/share/jitsi-meet/transcripts"]
