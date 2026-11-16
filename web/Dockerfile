@@ -1,6 +1,6 @@
 ARG JITSI_REPO=ghcr.io/jitsi
 ARG BASE_TAG=latest
-FROM ${JITSI_REPO}/base:${BASE_TAG}
+FROM ${JITSI_REPO}/base:stable-11509
 
 USER root
 
@@ -11,7 +11,7 @@ LABEL org.opencontainers.image.source="https://github.com/jitsi/docker-jitsi-mee
 LABEL org.opencontainers.image.documentation="https://jitsi.github.io/handbook/"
 
 ADD https://raw.githubusercontent.com/acmesh-official/acme.sh/3.0.7/acme.sh /opt
-COPY rootfs/ /
+COPY web/rootfs/ /
 
 RUN \
   apt-dpkg-wrap apt-get update && \
@@ -34,6 +34,5 @@ RUN \
 
 EXPOSE 8000 8443
 
-VOLUME ["/config", "/usr/share/jitsi-meet/transcripts"]
-
 USER s6
+VOLUME ["/usr/share/jitsi-meet/transcripts"]
